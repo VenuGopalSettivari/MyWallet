@@ -3,6 +3,7 @@ package com.alti.mywallet.service;
 import java.util.List;
 
 import com.alti.mywallet.bean.CustomerBean;
+import com.alti.mywallet.exception.CustomerNotCreated;
 
 public interface CustomerService {
 

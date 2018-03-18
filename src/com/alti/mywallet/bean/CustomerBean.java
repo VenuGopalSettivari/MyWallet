@@ -2,17 +2,49 @@ package com.alti.mywallet.bean;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CUSTOMER")
 public class CustomerBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int customerID;
+	
+	@Column(name = "CUSTOMER_LOGIN", nullable = false)
 	private String customerLogIn;
+	
+	@Column(name = "CUSTOMER_PASSWORD", nullable = false)
 	private String password;
+	
+	@Column(name = "FIRST_NAME", nullable = false)
 	private String customerFirstName;
+	
+	@Column(name = "LAST_NAME", nullable = false)
 	private String customerLastName;
+	
+	@Column(name = "EMAIL", nullable = false)
 	private String emailAddress;
 	
 	
+	
+	
+	public int getCustomerID() {
+		return customerID;
+	}
+/*	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
+	}
+*/	
 	public String getCustomerLogIn() {
 		return customerLogIn;
 	}
@@ -47,9 +79,11 @@ public class CustomerBean implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "CustomerBean [customerLogIn=" + customerLogIn + ", password=" + password + ", customerFirstName="
-				+ customerFirstName + ", customerLastName=" + customerLastName + ", emailAddress=" + emailAddress + "]";
+		return "CustomerBean [customerID=" + customerID + ", customerLogIn=" + customerLogIn + ", password=" + password
+				+ ", customerFirstName=" + customerFirstName + ", customerLastName=" + customerLastName
+				+ ", emailAddress=" + emailAddress + "]";
 	}
+	
 	
 	
 	

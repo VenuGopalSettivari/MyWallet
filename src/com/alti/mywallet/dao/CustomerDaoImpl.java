@@ -2,14 +2,16 @@ package com.alti.mywallet.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.alti.mywallet.bean.CustomerBean;
 
-public class CustomerDaoImpl implements CustomerDAO{
+@Repository("customerDao")
+public class CustomerDaoImpl extends AbstractDAO implements CustomerDAO{
 
 	@Override
 	public void createCustomer(CustomerBean bean) {
-		// TODO Auto-generated method stub
-		
+		persist(bean);	
 	}
 
 	@Override

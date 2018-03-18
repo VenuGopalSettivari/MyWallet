@@ -9,7 +9,7 @@
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context.xsd ">
 
-	<context:component-scan base-package="com.alti.mywallet" />
+	 <context:component-scan base-package="com.alti.mywallet" />
 
     <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
     <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
@@ -23,7 +23,7 @@
         <property name="suffix" value=".html" />
     </bean>
     
-    
+    <bean id="customerService" name="customerService" class="com.alti.mywallet.service.CustomerServiceImpl"></bean>
       
 
 </beans>

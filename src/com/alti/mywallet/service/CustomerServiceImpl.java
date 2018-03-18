@@ -2,19 +2,24 @@ package com.alti.mywallet.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.alti.mywallet.bean.CustomerBean;
+import com.alti.mywallet.dao.CustomerDAO;
+import com.alti.mywallet.exception.CustomerNotCreated;
 
-@Service("employeeService")
+@Service("customerService")
 @Transactional
 public class CustomerServiceImpl implements CustomerService{
 
+	@Autowired
+	CustomerDAO dao;
+	
 	@Override
-	public void createCustomer(CustomerBean bean) {
-		// TODO Auto-generated method stub
-		
+	public void createCustomer(CustomerBean bean){
+			dao.createCustomer(bean);
 	}
 
 	@Override
