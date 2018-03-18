@@ -19,7 +19,12 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	@Override
 	public void createCustomer(CustomerBean bean){
-			dao.createCustomer(bean);
+			try {
+				dao.createCustomer(bean);
+			} catch (CustomerNotCreated e) {
+				System.out.println("Cutomer is not able to created");
+				e.printStackTrace();
+			}
 	}
 
 	@Override

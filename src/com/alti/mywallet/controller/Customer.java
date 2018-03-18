@@ -31,7 +31,7 @@ public class Customer {
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<CustomerBean> getCustomerList(){
-		System.out.println("Hellow getting list of customers");
+		System.out.println("Hello getting list of customers");
 		
 		return list;
 	}
@@ -45,7 +45,12 @@ public class Customer {
 	@RequestMapping(value = "/", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
 	public void insertCustomer(@RequestBody CustomerBean customerBean){
 		CustomerService service = (CustomerService) context.getBean("customerService");
+		try{
 			service.createCustomer(customerBean);
+		}catch(Exception e){
+			System.out.println("Error on customer creation");
+			e.printStackTrace();
+		}
 	}
 	
 	@RequestMapping(value = "/{customer_login}", method = RequestMethod.DELETE,produces = MediaType.APPLICATION_JSON_VALUE)

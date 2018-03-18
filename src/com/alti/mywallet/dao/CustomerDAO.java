@@ -8,7 +8,7 @@ import com.alti.mywallet.exception.CustomerNotCreated;
 public interface CustomerDAO {
 
 
-	void createCustomer(CustomerBean bean);
+	void createCustomer(CustomerBean bean) throws CustomerNotCreated;
 	
 	void deleteCustomer(String byLogin);
 	
